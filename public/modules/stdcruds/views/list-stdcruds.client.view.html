@@ -1,0 +1,19 @@
+<section data-ng-controller="StdcrudsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Stdcruds</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="stdcrud in stdcruds" data-ng-href="#!/stdcruds/{{stdcrud._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="stdcrud.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="stdcrud.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="stdcrud.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!stdcruds.$resolved || stdcruds.length">
+    	No Stdcruds yet, why don't you <a href="/#!/stdcruds/create">create one</a>?
+    </div>
+</section>
